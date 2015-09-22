@@ -397,6 +397,7 @@ def test_koji_promote(tmpdir):
         assert 'arch' in host
         assert host['arch']
         assert is_string_type(host['arch'])
+        assert host['arch'] != 'amd64'
 
         assert 'content_generator' in buildroot
         content_generator = buildroot['content_generator']

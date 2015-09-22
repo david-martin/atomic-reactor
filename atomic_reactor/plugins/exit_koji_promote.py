@@ -219,11 +219,15 @@ class KojiPromotePlugin(ExitPlugin):
 
         docker_version = self.tasker.get_version()
         docker_info = self.tasker.get_info()
+        host_arch = docker_version['Arch']
+        if host_arch == 'amd64':
+            host_arch = 'x86_64'
+
         buildroot = {
             'id': 1,
             'host': {
                 'os': docker_info['OperatingSystem'],
-                'arch': docker_version['Arch'],
+                'arch': host_arch,
             },
             'content_generator': {
                 'name': PROG,
