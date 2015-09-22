@@ -97,7 +97,7 @@ class StoreMetadataInOSv3Plugin(ExitPlugin):
         }
 
         try:
-            commit_id = self.workflow.source.lg.commit_id
+            commit_id = self.workflow.source.commit_id
         except AttributeError:
             commit_id = ""
 
